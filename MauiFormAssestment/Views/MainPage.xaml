@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiFormAssestment.Views.MainPage"
+             Title="MainPage">
+
+    <Grid Padding="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="80" />
+        </Grid.RowDefinitions>
+
+        <!-- LIST OF ENTRIES -->
+        <CollectionView x:Name="EntriesView"
+                        SelectionMode="Single"
+                        Grid.Row="0"
+                        Margin="0,0,0,10"
+                        SelectionChanged="EntriesView_SelectionChanged">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="#DDD" Padding="10" CornerRadius="8" Margin="0,5">
+                        <Label Text="{Binding DisplayText}"
+                               FontSize="18"
+                               VerticalTextAlignment="Center"/>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- ADD BUTTON -->
+        <Button Text="Add"
+                Grid.Row="1"
+                HeightRequest="50"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                WidthRequest="150"
+                Clicked="AddEntry_Clicked"/>
+    </Grid>
+</ContentPage>
